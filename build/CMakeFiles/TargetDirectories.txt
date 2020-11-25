@@ -1,0 +1,6 @@
+/Users/jolex007/Documents/programming/FlexC/build/CMakeFiles/rebuild_cache.dir
+/Users/jolex007/Documents/programming/FlexC/build/CMakeFiles/edit_cache.dir
+/Users/jolex007/Documents/programming/FlexC/build/CMakeFiles/Main.dir
+/Users/jolex007/Documents/programming/FlexC/build/src/CMakeFiles/rebuild_cache.dir
+/Users/jolex007/Documents/programming/FlexC/build/src/CMakeFiles/edit_cache.dir
+/Users/jolex007/Documents/programming/FlexC/build/src/CMakeFiles/FlexC_src.dir

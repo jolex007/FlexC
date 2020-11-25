@@ -1,0 +1,111 @@
+ ____________
+|            |
+|   States   |
+|____________|
+
+
+1 - names (strings)
+2 - numbers (const number or "string" or 'char')
+3 - brackets ( () [] {} )
+4 - operaton ( + - * / % ^ = += -= *= /= %= ^= | & || && )
+5 - punkt ( , ; : )
+6 - reserved words
+
+ ____________
+|            |
+| TODO  LIST |
+|____________|
+
+• 	Сделать ввод, вывод
+• 	Сделать описание указателей
+
+_____________________________________________________
+
+
+• 	В лексическом сделать дробную константу - сделано 
+• 	Сделать скобки в выражениях - сделано
+• 	Глобальные перменные - сделано
+
+ ____________
+|            |
+| Grammatics |
+|____________|
+
+
+<program> ::= { <function> }
+
+<function> ::= <type function> <name> '(' [ <description func> {',' <description func> } ] ')' <comp operator>
+
+<type> ::= 'bool' | 'int' | 'float' | 'char' | 'string'
+<type function> ::= 'bool' | 'int' | 'float' | 'void' | 'char' | 'string'
+
+<name> ::= 'string' // lexem
+
+<description func> ::= <type> <name>
+<description> ::= <type> { '*' } <section> { ',' { '*' } <section> } ';'
+<section> ::= <name> | <name> '=' <term>
+
+<comp operator> ::= '{' <operator> { <operator> } '}'
+
+<operator> ::= <comp operator> | <spec operator> | <description> |  <term> ';' | 'break' | 'continue' | 'return' <term> ';'
+
+<term> ::= <term 1>
+
+<sign 1> ::= '=' | '+=' | '-=' | '*=' | '/=' | '%=' | '|=' | '&=' | '^='
+<sign 2> ::= '||'
+<sign 3> ::= '&&'
+<sign 4> ::= '|'
+<sign 5> ::= '&'
+<sign 6> ::= '==' | '!='
+<sign 7> ::= '<' | '<=' | '>' | '>='
+<sign 8> ::= '+' | '-'
+<sign 9> ::= '*' | '/' | '%'
+<sign 10> ::= '^^'
+
+<sign 11> ::= '++' | '--' | '+' | '-' | '!' | '~' | '*' | '&' | '^'  // Unary operator + prefix + pointer + adress of
+<sign 12> ::= '++' | '--' // postfix
+
+
+<term 1> ::= <term 2> { <sign 1> <term 2> }
+<term 2> ::= <term 3> { <sign 2> <term 3> }
+<term 3> ::= <term 4> { <sign 3> <term 4> }
+<term 4> ::= <term 5> { <sign 4> <term 5> }
+<term 5> ::= <term 6> { <sign 5> <term 6> }
+<term 6> ::= <term 7> { <sign 6> <term 7> }
+<term 7> ::= <term 8> { <sign 7> <term 8> }
+<term 8> ::= <term 9> { <sign 8> <term 9> }
+<term 9> ::= <term 10> { <sign 9> <term 10> }
+<term 10> ::= <term 11> { <sign 10> <term 11> }
+<term 11> ::= [ <sign 11> ] <term 12>
+<term 12> ::= <term 13> [ <sign 12> ]
+<term 13> ::= <name> | <constant> | <function call> | '(' <term> ')'
+
+
+<constant> ::= <number> | 'true' | 'false' | '"string"' | ''char''
+
+
+<function call> ::= <name> '(' [ <term> { ',' <term> } ] ')'
+
+
+<spec operator> ::= <operator for> | <operator while> | <operator if> | <operator switch>
+
+
+<operator if> ::= 'if' '(' <term> ')' <operator> [ <operator else> ]
+
+
+<operator for> ::= 'for' '(' <term> ';' <term> ';' <term> ')' <operator> |
+				   'for' '(' <description> ';' <term> ';' <term> ')' <operator>
+
+
+<operator while> ::= 'while' '(' <term> ')' <operator>
+
+
+<operator switch> ::= 'switch' '(' <term> ')' <operator case> |
+					  'switch' '(' <term> ')' '{' <operator case> { <operator case> } '}'
+
+
+<operator case> ::= 'case' <constant> ':' <operator> |
+					'default' ':' <operator>
+
+
+<operator else> ::= 'else' <operator>
